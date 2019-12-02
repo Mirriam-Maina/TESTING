@@ -7,6 +7,7 @@ test('Github homepage tests', async page=> {
     await page.expect(Selector('span.vcard-fullname').innerText).eql('Mirriam')
     .expect(Selector('span.vcard-username').innerText).eql('Mirriam-Maina')
     .click(Selector('a.UnderlineNav-item').withText('Repositories'))
+    .expect(Selector('li[itemprop=owns]').count).eql(20)
     .click(Selector('a.UnderlineNav-item.mr-0.mr-md-1.mr-lg-3 '))
     .click(Selector('span.repo').withText('GROWTH_MARKS'))
     .expect(Selector('span.text-gray-dark.mr-2').textContent).contains('users can share and read stories')
